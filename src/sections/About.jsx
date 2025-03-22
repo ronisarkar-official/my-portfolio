@@ -1,15 +1,29 @@
-import { useState, memo } from 'react';
+import { useState, useEffect, memo, useRef } from 'react';
 import Globe from 'react-globe.gl';
 import Button from '../components/Button';
 
 const About = memo(() => {
   const [hasCopied, setHasCopied] = useState(false);
+  const globeRef = useRef();
 
   const handleCopy = () => {
     navigator.clipboard.writeText('ronisarkar10938@gmail.com');
     setHasCopied(true);
     setTimeout(() => setHasCopied(false), 2000);
   };
+
+  useEffect(() => {
+    const globe = globeRef.current;
+    if (!globe) return;
+
+    const rotate = () => {
+      globe.controls().autoRotate = true;
+      globe.controls().autoRotateSpeed = -0.7; // Adjust rotation speed
+      globe.controls().update();
+      requestAnimationFrame(rotate);
+    };
+    rotate();
+  }, []);
 
   return (
     <section className="c-space my-20" id="about">
@@ -44,6 +58,7 @@ const About = memo(() => {
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
               <Globe
+                ref={globeRef}
                 height={326}
                 width={326}
                 backgroundColor="rgba(0, 0, 0, 0)"
