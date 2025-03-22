@@ -1,44 +1,45 @@
-import { useState } from 'react';
+import { useState, memo } from 'react';
 import Globe from 'react-globe.gl';
 import Button from '../components/Button';
 
-const About = () => {
+const About = memo(() => {
   const [hasCopied, setHasCopied] = useState(false);
+
   const handleCopy = () => {
     navigator.clipboard.writeText('ronisarkar10938@gmail.com');
     setHasCopied(true);
-    setTimeout(() => {
-      setHasCopied(false);
-    }, 2000);
+    setTimeout(() => setHasCopied(false), 2000);
   };
+
   return (
-    <section className="c-space my-20 " id="about">
-      <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full ">
+    <section className="c-space my-20" id="about">
+      <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 row-span-3">
           <div className="grid-container">
-            <img src="/assets/grid1.png" alt="grid-1 " className="w-full sm:h-[276px] h-fit object-contain" />
+            <img src="/assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
             <div>
               <p className="grid-headtext">Hi, I am Roni Sarkar</p>
               <p className="grid-subtext">
-                with 1 years of experience, I have honed my skills in front-end and back-end development, with a focus
-                on animated 3D websites.
+                With 1 year of experience, I have honed my skills in front-end and back-end development, focusing on
+                animated 3D websites.
               </p>
             </div>
           </div>
         </div>
+
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
             <img src="assets/grid2.png" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
-
             <div>
               <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
-              I specialize in ReactJS, ThreeJS, and Framer Motion, with a strong understanding of NodeJS, ExpressJS,
-              and MongoDB.
+                I specialize in ReactJS, ThreeJS, and Framer Motion, with a strong understanding of NodeJS, ExpressJS,
+                and MongoDB.
               </p>
             </div>
           </div>
         </div>
+
         <div className="col-span-1 xl:row-span-4">
           <div className="grid-container">
             <div className="rounded-3xl w-full sm:h-[326px] h-fit flex justify-center items-center">
@@ -56,7 +57,7 @@ const About = () => {
             <div>
               <p className="grid-headtext">I work remotely across most timezones.</p>
               <p className="grid-subtext">
-                I'm currently based in WestBengal, India and open to remote work worldwide.
+                I'm currently based in West Bengal, India, and open to remote work worldwide.
               </p>
               <a href="#contact" className="w-fit">
                 <Button
@@ -68,6 +69,7 @@ const About = () => {
             </div>
           </div>
         </div>
+
         <div className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container">
             <img src="/assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
@@ -81,6 +83,7 @@ const About = () => {
             </div>
           </div>
         </div>
+
         <div className="xl:col-span-1 xl:row-span-2">
           <div className="grid-container">
             <img
@@ -102,6 +105,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
 
 export default About;
