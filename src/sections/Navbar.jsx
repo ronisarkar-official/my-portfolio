@@ -1,8 +1,7 @@
-import { useState } from 'react';
-
+import { useState, memo } from 'react';
 import { navLinks } from '../constants/index.js';
 
-const NavItems = ({ onClick = () => {} }) => (
+const NavItems = memo(({ onClick = () => {} }) => (
   <ul className="nav-ul">
     {navLinks.map((item) => (
       <li key={item.id} className="nav-li">
@@ -12,7 +11,7 @@ const NavItems = ({ onClick = () => {} }) => (
       </li>
     ))}
   </ul>
-);
+));
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,14 +24,21 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between items-center py-5 mx-auto c-space">
           <a href="/" className="text-neutral-400 font-bold text-xl hover:text-white transition-colors">
-            Roni sarkar
+            Roni Sarkar
           </a>
 
           <button
             onClick={toggleMenu}
             className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
-            aria-label="Toggle menu">
-            <img src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'} alt="toggle" className="w-6 h-6" />
+            aria-label="Toggle menu"
+            aria-expanded={isOpen}
+            aria-controls="nav-sidebar"
+          >
+            <img
+              src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'}
+              alt={isOpen ? 'Close menu' : 'Open menu'}
+              className="w-6 h-6"
+            />
           </button>
 
           <nav className="sm:flex hidden">
@@ -41,7 +47,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className={`nav-sidebar ${isOpen ? 'max-h-screen' : 'max-h-0'}`}>
+      <div
+        id="nav-sidebar"
+        className={`nav-sidebar transition-all duration-300 ease-in-out overflow-hidden ${
+          isOpen ? 'max-h-screen' : 'max-h-0'
+        }`}
+      >
         <nav className="p-5">
           <NavItems onClick={closeMenu} />
         </nav>
@@ -50,4 +61,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default memo(Navbar);
