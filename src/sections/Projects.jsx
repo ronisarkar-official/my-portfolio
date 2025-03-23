@@ -1,4 +1,4 @@
-import { Suspense, useState, memo } from 'react';
+import { Suspense, useState, memo, useMemo, useCallback } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 
@@ -10,9 +10,9 @@ const projectCount = myProjects.length;
 
 const Projects = memo(() => {
   const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
-  const currentProject = myProjects[selectedProjectIndex];
+  const currentProject = useMemo(() => myProjects[selectedProjectIndex], [selectedProjectIndex]);
 
-  const handleNavigation = (direction) => {
+  const handleNavigation = useCallback((direction) => {
     setSelectedProjectIndex((prevIndex) => {
       if (direction === 'previous') {
         return prevIndex === 0 ? projectCount - 1 : prevIndex - 1;
@@ -20,7 +20,7 @@ const Projects = memo(() => {
         return prevIndex === projectCount - 1 ? 0 : prevIndex + 1;
       }
     });
-  };
+  }, []);
 
   return (
     <section className="c-space my-20" id="work">
@@ -32,6 +32,7 @@ const Projects = memo(() => {
               src={currentProject.spotlight}
               alt={`${currentProject.title} Spotlight`}
               className="w-full h-96 object-cover rounded-xl transition-transform duration-300 ease-in-out hover:scale-105"
+              loading="lazy"
             />
           </div>
           <div
@@ -42,6 +43,7 @@ const Projects = memo(() => {
               src={currentProject.logo}
               alt={`${currentProject.title} Logo`}
               className="w-10 h-10 shadow-sm"
+              loading="lazy"
             />
           </div>
           <div className="flex flex-col gap-5 text-white-600 my-5">
@@ -59,6 +61,7 @@ const Projects = memo(() => {
                     src={tag.path}
                     alt={tag.name}
                     className="w-6 h-6"
+                    loading="lazy"
                   />
                 </div>
               ))}
@@ -74,6 +77,7 @@ const Projects = memo(() => {
                 src="/assets/arrow-up.png"
                 alt="Visit site"
                 className="w-3 h-3"
+                loading="lazy"
               />
             </a>
           </div>
@@ -87,6 +91,7 @@ const Projects = memo(() => {
                 src="/assets/left-arrow.png"
                 alt="Previous"
                 className="w-4 h-4"
+                loading="lazy"
               />
             </button>
             <button
@@ -98,6 +103,7 @@ const Projects = memo(() => {
                 src="/assets/right-arrow.png"
                 alt="Next"
                 className="w-4 h-4"
+                loading="lazy"
               />
             </button>
           </div>
@@ -105,7 +111,7 @@ const Projects = memo(() => {
         <div className="border border-black-300 bg-black-200 rounded-lg h-96 md:h-full">
           <Canvas>
             <ambientLight intensity={7} />
-            <directionalLight position={[10, 10, 5]} />
+            <directionalLight position={[10, 10, 5]} intensity={0.8} />
             <Center>
               <Suspense fallback={<CanvasLoader />}>
                 <group
