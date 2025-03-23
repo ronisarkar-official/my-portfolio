@@ -4,9 +4,23 @@
 @tailwind components;
 @tailwind utilities;
 
+
 * {
   scroll-behavior: smooth;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  image-rendering: crisp-edges;
+  touch-action: manipulation;
+  overscroll-behavior: contain;
+  text-rendering: optimizeLegibility;
 }
+
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+}
+
 
 body {
   background: #010103;
