@@ -19,7 +19,7 @@ This portfolio is a reflection of my journey as an aspiring software engineer, s
 - Vercel for fast and reliable hosting
 
 ## 🚀 Live Demo
-Experience the website live at: [roni-sarkar.vercel.app](https://ronisarkar-three.vercel.app)
+Experience the website live at: [roni-sarkar.vercel.app](https://roni-sarkar.vercel.app)
 
 ## 📫 Contact
 Let's connect! Reach out to me on [LinkedIn](https://www.linkedin.com/in/ronisarkar/) or get in touch via my portfolio site!
