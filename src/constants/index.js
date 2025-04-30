@@ -58,10 +58,10 @@ export const clientReviews = [
 
 export const myProjects = [
   {
-    title: 'Podcastr - AI Podcast Platform',
-    desc: 'Podcastr is a revolutionary Software-as-a-Service platform that transforms the way podcasts are created. With advanced AI-powered features like text-to-multiple-voices functionality, it allows creators to generate diverse voiceovers from a single text input.',
+    title: 'SmartLibrary - A Modern Library Management System',
+    desc: 'SmartLibrary is a full-featured web-based application designed to simplify and streamline library operations. Built with a clean user interface and functional backend, the system allows administrators to manage book inventory, track users, and handle lending activities efficiently.',
     subdesc:
-      'Built as a unique Software-as-a-Service app with Next.js 14, Tailwind CSS, TypeScript, Framer Motion and Convex, Podcastr is designed for optimal performance and scalability.',
+      'Built as a dynamic web application with HTML, CSS, PHP, and MySQL, SmartLibrary is designed for optimal performance and scalability, ensuring a seamless user experience and efficient backend management.',
     href: 'https://mcet.free.nf',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo1.png',
