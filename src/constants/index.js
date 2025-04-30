@@ -85,7 +85,7 @@ export const myProjects = [
       {
         id: 3,
         name: 'JavaScript',
-        path: '/assets/Js.png',
+        path: '/assets/js.png',
       },
       {
         id: 4,
