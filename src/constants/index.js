@@ -21,6 +21,44 @@ export const navLinks = [
   },
 ];
 
+export const logoIconsList = [
+  {
+    imgPath: "/images/company-logo-1.png",
+  },
+  {
+    imgPath: "/images/company-logo-2.png",
+  },
+  {
+    imgPath: "/images/company-logo-3.png",
+  },
+  {
+    imgPath: "/images/company-logo-4.png",
+  },
+  {
+    imgPath: "/images/company-logo-5.png",
+  },
+  {
+    imgPath: "/images/company-logo-6.png",
+  },
+  {
+    imgPath: "/images/company-logo-7.png",
+  },
+  {
+    imgPath: "/images/company-logo-8.png",
+  },
+  {
+    imgPath: "/images/company-logo-9.png",
+  },
+  {
+    imgPath: "/images/company-logo-10.png",
+  },
+  {
+    imgPath: "/images/company-logo-11.png",
+  },
+];
+
+
+
 export const clientReviews = [
   {
     id: 1,

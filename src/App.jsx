@@ -1,4 +1,4 @@
-
+import LogoSection from './sections/LogoSection.jsx';
 import About from './sections/About.jsx';
 import Clients from './sections/Clients.jsx';
 import Contact from './sections/Contact.jsx';
@@ -14,7 +14,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
-      
+      <LogoSection />
       <Exprience />
       <Projects />
       <Clients />
