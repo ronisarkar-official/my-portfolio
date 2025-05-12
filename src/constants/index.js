@@ -23,41 +23,24 @@ export const navLinks = [
 
 export const logoIconsList = [
   {
-    imgPath: "/images/company-logo-1.png",
+    imgPath: '/images/company-logo-1.png',
   },
   {
-    imgPath: "/images/company-logo-2.png",
+    imgPath: '/images/company-logo-2.png',
   },
   {
-    imgPath: "/images/company-logo-3.png",
+    imgPath: '/images/company-logo-3.png',
   },
   {
-    imgPath: "/images/company-logo-4.png",
+    imgPath: '/images/company-logo-4.png',
   },
   {
-    imgPath: "/images/company-logo-5.png",
+    imgPath: '/images/company-logo-5.png',
   },
   {
-    imgPath: "/images/company-logo-6.png",
-  },
-  {
-    imgPath: "/images/company-logo-7.png",
-  },
-  {
-    imgPath: "/images/company-logo-8.png",
-  },
-  {
-    imgPath: "/images/company-logo-9.png",
-  },
-  {
-    imgPath: "/images/company-logo-10.png",
-  },
-  {
-    imgPath: "/images/company-logo-11.png",
+    imgPath: '/images/company-logo-6.png',
   },
 ];
-
-
 
 export const clientReviews = [
   {
@@ -137,7 +120,6 @@ export const myProjects = [
       },
     ],
   },
-  
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
@@ -157,7 +139,8 @@ export const workExperiences = [
     name: 'Framer',
     pos: 'Lead Web Developer',
     duration: '2022 - Present',
-    title: "Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.",
+    title:
+      'Framer serves as my go-to tool for creating interactive prototypes. I use it to bring designs to  life, allowing stakeholders to experience the user flow and interactions before development.',
     icon: '/assets/framer.svg',
     animation: 'victory',
   },
@@ -166,7 +149,8 @@ export const workExperiences = [
     name: 'Figma',
     pos: 'Web Developer',
     duration: '2020 - 2022',
-    title: "Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.",
+    title:
+      'Figma is my collaborative design platform of choice. I utilize it to work seamlessly with team members and clients, facilitating real-time feedback and design iterations. Its cloud-based.',
     icon: '/assets/figma.svg',
     animation: 'clapping',
   },
@@ -175,7 +159,8 @@ export const workExperiences = [
     name: 'Notion',
     pos: 'Junior Web Developer',
     duration: '2019 - 2020',
-    title: "Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.",
+    title:
+      'Notion helps me keep my projects organized. I use it for project management, task tracking, and as a central hub for documentation, ensuring that everything from design notes to.',
     icon: '/assets/notion.svg',
     animation: 'salute',
   },
