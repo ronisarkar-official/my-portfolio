@@ -66,7 +66,7 @@ const Hero = () => {
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space flex flex-col sm:flex-row items-center justify-center gap-4">
 
   {/* Download CV Button - Black Theme */}
-  <a href="/YourCVFile.pdf" download>
+  <a href="https://docs.google.com/document/d/1lkEu6NlkrndLhR7wFucf7Bf7aXtzUwe2OpI7yc6n1tw/edit?usp=sharing" download>
   <div className="flex items-center gap-2 text-white bg-black hover:bg-gray-800 rounded-full px-6 py-2 border border-white/10 shadow-md shadow-gray-800 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-gray-800">
 
     <span>Download CV</span>
@@ -77,7 +77,7 @@ const Hero = () => {
 
   {/* GitHub Link with Clean Icon */}
   <a
-    href="https://github.com/yourusername"
+    href="https://github.com/ronisarkar-official"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center gap-2 text-white hover:text-gray-300 transition duration-200"
@@ -90,7 +90,7 @@ const Hero = () => {
 
   {/* LinkedIn Link with Icon */}
   <a
-    href="https://linkedin.com/in/yourusername"
+    href="https://www.linkedin.com/in/ronisarkar/"
     target="_blank"
     rel="noopener noreferrer"
     className="flex items-center gap-2 text-white hover:text-blue-300 transition duration-200"
