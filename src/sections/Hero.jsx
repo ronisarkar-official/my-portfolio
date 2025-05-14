@@ -63,7 +63,7 @@ const Hero = () => {
         </Canvas>
       </div>
 
-      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space flex flex-col sm:flex-row items-center justify-center gap-4">
+      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space flex  sm:flex-row items-center justify-center gap-4">
 
   {/* Download CV Button - Black Theme */}
   <a href="https://docs.google.com/document/d/1lkEu6NlkrndLhR7wFucf7Bf7aXtzUwe2OpI7yc6n1tw/edit?usp=sharing" download>
