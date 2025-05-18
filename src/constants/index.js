@@ -120,6 +120,38 @@ export const myProjects = [
       },
     ],
   },
+  {
+    title: 'SpecHype - Game News & System Requirements',
+    desc: 'Spechype is a fast, clean, and content-rich site for gamers and tech enthusiasts. It offers detailed system requirements, game reviews, and performance insights to help users make informed choices. Optimized for speed, mobile use, and SEO, Spechype ensures a smooth experience while targeting top search engine visibility.',
+    subdesc:
+      'Built as a dynamic web application using HTML, CSS, and JavaScript. Spechype is optimized for speed, responsiveness, and scalability. It delivers a smooth user experience with a lightweight frontend and efficient content delivery, ensuring fast load times and seamless browsing across all devices.',
+    href: 'https://www.spechype.com',
+    texture: '/textures/project/project2.mp4',
+    logo: '/assets/project-logo2.png',
+    logoStyle: {
+      backgroundColor: '#2A1816',
+      border: '0.2px solid #36201D',
+      boxShadow: '0px 0px 60px 0px #AA3C304D',
+    },
+    spotlight: '/assets/spotlight5.png',
+    tags: [
+      {
+        id: 1,
+        name: 'Html',
+        path: '/assets/html.png',
+      },
+      {
+        id: 2,
+        name: 'CSS',
+        path: 'assets/css.png',
+      },
+      {
+        id: 3,
+        name: 'JavaScript',
+        path: '/assets/js.png',
+      },
+    ],
+  },
 ];
 
 export const calculateSizes = (isSmall, isMobile, isTablet) => {
