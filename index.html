@@ -80,5 +80,27 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+    <script type="module">
+  import { onCLS, onFID, onLCP, onFCP, onTTFB } from 'https://unpkg.com/web-vitals@3?module';
+
+  function sendToVercelAnalytics(metric) {
+    const url = '/__vercel/insights'; // Vercel internal endpoint
+    fetch(url, {
+      method: 'POST',
+      body: JSON.stringify(metric),
+      keepalive: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+  }
+
+  onCLS(sendToVercelAnalytics);
+  onFID(sendToVercelAnalytics);
+  onLCP(sendToVercelAnalytics);
+  onFCP(sendToVercelAnalytics);
+  onTTFB(sendToVercelAnalytics);
+</script>
+
   </body>
 </html>
