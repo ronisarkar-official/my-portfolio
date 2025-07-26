@@ -32,8 +32,7 @@ const Navbar = () => {
             className="text-neutral-400 hover:text-white focus:outline-none sm:hidden flex"
             aria-label="Toggle menu"
             aria-expanded={isOpen}
-            aria-controls="nav-sidebar"
-          >
+            aria-controls="nav-sidebar">
             <img
               src={isOpen ? 'assets/close.svg' : 'assets/menu.svg'}
               alt={isOpen ? 'Close menu' : 'Open menu'}
@@ -51,8 +50,7 @@ const Navbar = () => {
         id="nav-sidebar"
         className={`nav-sidebar transition-all duration-300 ease-in-out overflow-hidden ${
           isOpen ? 'max-h-screen' : 'max-h-0'
-        }`}
-      >
+        }`}>
         <nav className="p-5">
           <NavItems onClick={closeMenu} />
         </nav>

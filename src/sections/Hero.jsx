@@ -10,7 +10,6 @@ import Target from '../components/Target.jsx';
 import ReactLogo from '../components/ReactLogo.jsx';
 import Cube from '../components/Cube.jsx';
 import Rings from '../components/Rings.jsx';
-import Button from '../components/Button.jsx';
 
 import { motion } from 'framer-motion';
 import { fadeIn } from '../Variants.js';
@@ -59,15 +58,13 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space flex  sm:flex-row items-center justify-center gap-4">
-        {/* Download CV Button - Black Theme */}
-        <a href="https://drive.google.com/file/d/1x2tm56CdgzzST25K-l6tVhOanPXY1zSw/view?usp=sharing" download>
+        <a href="https://drive.google.com/file/d/1LUALqh7wvyjfcw2xyT4ofS5aQALpxD6l/view?usp=sharing" download>
           <div className="flex items-center gap-2 text-white bg-black hover:bg-gray-800 rounded-full px-6 py-2 border border-white/10 shadow-md shadow-gray-800 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-gray-800">
             <span>Download CV</span>
             <img src="assets/download.png" alt="CV Icon" className="w-6 h-6" />
           </div>
         </a>
 
-        {/* GitHub Link with Clean Icon */}
         <a
           href="https://github.com/ronisarkar-official"
           target="_blank"
@@ -78,7 +75,6 @@ const Hero = () => {
           </svg>
         </a>
 
-        {/* LinkedIn Link with Icon */}
         <a
           href="https://www.linkedin.com/in/ronisarkar/"
           target="_blank"
