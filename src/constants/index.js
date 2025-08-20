@@ -79,17 +79,57 @@ export const clientReviews = [
 
 export const myProjects = [
   {
+    title: 'Pixivo – A Creative Visual Sharing Platform',
+    desc: 'Pixivo is a modern web-based application designed for effortless image discovery and sharing, much like a personalized visual inspiration hub. With its clean and engaging interface, users can explore, post, like, and comment on visual content, making it an interactive community-driven platform.',
+    subdesc:
+      'Developed using EJS, Express.js, MongoDB, and Node.js, Pixivo is built to deliver a smooth user experience with dynamic rendering and real-time interactions. It is optimized for scalability and performance, ensuring that users can seamlessly browse and engage with content anytime.',
+    href: 'https://pixivo.onrender.com',
+    githubUrl: 'https://github.com/ronisarkar-official/pixivo',
+    texture: '/textures/project/project3.mp4',
+    logo: '/assets/project-logo3.png',
+    logoStyle: {
+      backgroundColor: '#2A1816',
+      border: '0.2px solid #2840f4',
+      boxShadow: '0px 0px 60px 0px #6f38ca',
+    },
+    spotlight: '/assets/spotlight1.png',
+    tags: [
+      {
+        id: 1,
+        name: 'Mongodb',
+        path: '/assets/mongodb.png',
+      },
+      {
+        id: 2,
+        name: 'Express js',
+        path: 'assets/express.png',
+      },
+      {
+        id: 3,
+        name: 'Ejs',
+        path: '/assets/ejs.png',
+      },
+      {
+        id: 4,
+        name: 'Node js',
+        path: '/assets/nodejs.png',
+      },
+      
+    ],
+  },
+  {
     title: 'SmartLibrary - A Modern Library Management System',
     desc: 'SmartLibrary is a full-featured web-based application designed to simplify and streamline library operations. Built with a clean user interface and functional backend, the system allows administrators to manage book inventory, track users, and handle lending activities efficiently.',
     subdesc:
       'Built as a dynamic web application with HTML, CSS, PHP, and MySQL, SmartLibrary is designed for optimal performance and scalability, ensuring a seamless user experience and efficient backend management.',
     href: 'https://mcet.free.nf',
+    githubUrl: 'https://github.com/ronisarkar-official/Library-Management-System',
     texture: '/textures/project/project1.mp4',
     logo: '/assets/project-logo1.png',
     logoStyle: {
       backgroundColor: '#2A1816',
-      border: '0.2px solid #36201D',
-      boxShadow: '0px 0px 60px 0px #AA3C304D',
+      border: '0.2px solid #055895',
+      boxShadow: '0px 0px 60px 0px #0476c6',
     },
     spotlight: '/assets/spotlight1.png',
     tags: [
@@ -130,8 +170,8 @@ export const myProjects = [
     logo: '/assets/project-logo2.png',
     logoStyle: {
       backgroundColor: '#2A1816',
-      border: '0.2px solid #36201D',
-      boxShadow: '0px 0px 60px 0px #AA3C304D',
+      border: '0.2px solid #4538f2',
+      boxShadow: '0px 0px 60px 0px #8b2ef5',
     },
     spotlight: '/assets/spotlight5.png',
     tags: [

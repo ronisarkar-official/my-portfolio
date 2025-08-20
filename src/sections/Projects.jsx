@@ -35,10 +35,7 @@ const Projects = memo(() => {
               loading="lazy"
             />
           </div>
-          <div
-            className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg"
-            style={currentProject.logoStyle}
-          >
+          <div className="p-3 backdrop-filter backdrop-blur-3xl w-fit rounded-lg" style={currentProject.logoStyle}>
             <img
               src={currentProject.logo}
               alt={`${currentProject.title} Logo`}
@@ -47,9 +44,7 @@ const Projects = memo(() => {
             />
           </div>
           <div className="flex flex-col gap-5 text-white-600 my-5">
-            <p className="text-white text-2xl font-semibold animatedText">
-              {currentProject.title}
-            </p>
+            <p className="text-white text-2xl font-semibold animatedText">{currentProject.title}</p>
             <p className="animatedText">{currentProject.desc}</p>
             <p className="animatedText">{currentProject.subdesc}</p>
           </div>
@@ -57,54 +52,45 @@ const Projects = memo(() => {
             <div className="flex items-center gap-3">
               {currentProject.tags.map((tag, index) => (
                 <div key={index} className="tech-logo">
-                  <img
-                    src={tag.path}
-                    alt={tag.name}
-                    className="w-6 h-6"
-                    loading="lazy"
-                  />
+                  <img src={tag.path} alt={tag.name} className="w-6 h-6" loading="lazy" />
                 </div>
               ))}
             </div>
+
             <a
               className="flex items-center gap-2 cursor-pointer text-white-600"
               href={currentProject.href}
               target="_blank"
-              rel="noreferrer"
-            >
+              rel="noreferrer">
               <p>Check Live Site</p>
-              <img
-                src="/assets/arrow-up.png"
-                alt="Visit site"
-                className="w-3 h-3"
-                loading="lazy"
-              />
+              <img src="/assets/arrow-up.png" alt="Visit site" className="w-3 h-3" loading="lazy" />
             </a>
+            {currentProject.githubUrl ? (
+              <a
+                className="flex items-center gap-2 cursor-pointer text-white-600"
+                href={currentProject.githubUrl}
+                target="_blank"
+                rel="noreferrer"
+                aria-label={`View ${currentProject.title} on GitHub`}>
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  aria-hidden="true">
+                  <path d="M12 .5C5.73.5.75 5.48.75 11.75c0 4.92 3.18 9.09 7.59 10.56.56.1.77-.24.77-.54 0-.27-.01-1.17-.01-2.12-3.09.67-3.75-1.49-3.75-1.49-.51-1.29-1.25-1.63-1.25-1.63-1.02-.7.08-.69.08-.69 1.13.08 1.73 1.16 1.73 1.16 1.01 1.73 2.65 1.23 3.29.94.1-.73.39-1.23.71-1.52-2.47-.28-5.07-1.24-5.07-5.52 0-1.22.44-2.22 1.16-3-.12-.28-.5-1.42.11-2.96 0 0 .95-.3 3.12 1.15a10.7 10.7 0 0 1 2.84-.38c.96.01 1.92.13 2.84.38 2.17-1.45 3.12-1.15 3.12-1.15.61 1.54.23 2.68.12 2.96.72.78 1.16 1.78 1.16 3 0 4.29-2.61 5.23-5.09 5.51.4.35.76 1.04.76 2.1 0 1.52-.01 2.74-.01 3.11 0 .3.21.65.78.54A11.27 11.27 0 0 0 23.25 11.75C23.25 5.48 18.27.5 12 .5z" />
+                </svg>
+                <p>View on GitHub</p>
+              </a>
+            ) : null}
           </div>
           <div className="flex justify-between items-center mt-7">
-            <button
-              className="arrow-btn"
-              onClick={() => handleNavigation('previous')}
-              aria-label="Previous project"
-            >
-              <img
-                src="/assets/left-arrow.png"
-                alt="Previous"
-                className="w-4 h-4"
-                loading="lazy"
-              />
+            <button className="arrow-btn" onClick={() => handleNavigation('previous')} aria-label="Previous project">
+              <img src="/assets/left-arrow.png" alt="Previous" className="w-4 h-4" loading="lazy" />
             </button>
-            <button
-              className="arrow-btn"
-              onClick={() => handleNavigation('next')}
-              aria-label="Next project"
-            >
-              <img
-                src="/assets/right-arrow.png"
-                alt="Next"
-                className="w-4 h-4"
-                loading="lazy"
-              />
+            <button className="arrow-btn" onClick={() => handleNavigation('next')} aria-label="Next project">
+              <img src="/assets/right-arrow.png" alt="Next" className="w-4 h-4" loading="lazy" />
             </button>
           </div>
         </div>
@@ -114,11 +100,7 @@ const Projects = memo(() => {
             <directionalLight position={[10, 10, 5]} intensity={0.8} />
             <Center>
               <Suspense fallback={<CanvasLoader />}>
-                <group
-                  scale={2}
-                  position={[-0.3, -3, 0]}
-                  rotation={[0, -0.01, 0]}
-                >
+                <group scale={2} position={[-0.3, -3, 0]} rotation={[0, -0.01, 0]}>
                   <DemoComputer texture={currentProject.texture} />
                 </group>
               </Suspense>
