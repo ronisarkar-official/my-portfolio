@@ -14,7 +14,7 @@ const Footer = () => {
         </div>
 
         <div className="social-icon flex items-center justify-center">
-          <a href="https://x.com/RoniSarkar95" target="_blank" rel="noopener noreferrer">
+          <a href="https://x.com/ronisarkarDev" target="_blank" rel="noopener noreferrer">
             <img src="/assets/twitter.svg" alt="GitHub" className="w-8 h-8" />
           </a>
         </div>

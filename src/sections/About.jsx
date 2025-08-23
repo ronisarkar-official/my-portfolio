@@ -34,7 +34,7 @@ const About = memo(() => {
             <div>
               <p className="grid-headtext">Hi, I am Roni Sarkar</p>
               <p className="grid-subtext">
-                With 1 year of experience, I have honed my skills in front-end and back-end development, focusing on
+                With 2 year of experience, I have honed my skills in front-end and back-end development, focusing on
                 animated 3D websites.
               </p>
             </div>

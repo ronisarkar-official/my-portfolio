@@ -100,7 +100,7 @@ const Projects = memo(() => {
             <directionalLight position={[10, 10, 5]} intensity={0.8} />
             <Center>
               <Suspense fallback={<CanvasLoader />}>
-                <group scale={2} position={[-0.3, -3, 0]} rotation={[0, -0.01, 0]}>
+                <group scale={2} position={[-0.45, -3, 0.2]} rotation={[0, -0.00, 0]}>
                   <DemoComputer texture={currentProject.texture} />
                 </group>
               </Suspense>

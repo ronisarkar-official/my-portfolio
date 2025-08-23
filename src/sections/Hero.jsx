@@ -51,49 +51,74 @@ const Hero = () => {
               <Rings position={sizes.ringPosition} />
             </group>
 
-            <ambientLight intensity={0.8} />
-            <directionalLight position={[5, 5, 10]} intensity={0.6} />
+            <ambientLight intensity={0.6} />
+            <directionalLight
+              position={[10, 15, 10]}
+              intensity={1.2}
+              castShadow
+              shadow-mapSize-width={2048}
+              shadow-mapSize-height={2048}
+              shadow-camera-far={50}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+            />
+            <hemisphereLight skyColor={'#b1e1ff'} groundColor={'#ffffff'} intensity={0.8} />
           </Suspense>
         </Canvas>
       </div>
 
-      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space flex  sm:flex-row items-center justify-center gap-4">
-        <a href="https://drive.google.com/file/d/1LUALqh7wvyjfcw2xyT4ofS5aQALpxD6l/view?usp=sharing" download>
-          <div className="flex items-center gap-2 text-white bg-black hover:bg-gray-800 rounded-full px-6 py-2 border border-white/10 shadow-md shadow-gray-800 transition-all duration-300 ease-in-out transform hover:scale-105 hover:shadow-lg hover:shadow-gray-800">
-            <span>Download CV</span>
-            <img src="assets/download.png" alt="CV Icon" className="w-6 h-6" />
-          </div>
-        </a>
+      <div className="absolute bottom-7 left-0 right-0 w-full z-10 c-space flex sm:flex-row items-center justify-center">
+        {/* Glass panel wrapper */}
+        <div className="glass-panel inline-flex items-center gap-2 px-4 py-2 rounded-full transition-transform transform-gpu ">
+          {/* CV (open in new tab - download attribute won't force cross-origin downloads reliably) */}
+          <a
+            href="https://drive.google.com/file/d/1LUALqh7wvyjfcw2xyT4ofS5aQALpxD6l/view?usp=sharing"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open Curriculum Vitae in new tab"
+            className="inline-flex items-center gap-4 px-4 py-2 rounded-full transition-transform transform-gpu
+               bg-white/6 backdrop-blur-[10px] border border-white/20 shadow-lg
+               focus-within:ring-2 focus-within:ring-white/20 hover:scale-[1.02]">
+            <span className="text-white">Download CV</span>
+            <img src="/assets/download.png" alt="" className="w-6 h-6" aria-hidden />
+          </a>
 
-        <a
-          href="https://github.com/ronisarkar-official"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-white hover:text-gray-300 transition duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.4-3.88-1.4-.52-1.3-1.27-1.65-1.27-1.65-1.04-.7.08-.69.08-.69 1.16.08 1.77 1.2 1.77 1.2 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.25.72-1.53-2.55-.3-5.24-1.28-5.24-5.7 0-1.26.45-2.3 1.2-3.12-.12-.3-.52-1.52.12-3.17 0 0 .98-.32 3.2 1.2a10.95 10.95 0 0 1 5.84 0c2.2-1.53 3.18-1.2 3.18-1.2.64 1.65.24 2.87.12 3.17.76.82 1.2 1.86 1.2 3.12 0 4.43-2.7 5.4-5.27 5.7.42.36.77 1.08.77 2.17v3.21c0 .31.2.67.8.56A10.99 10.99 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
-          </svg>
-        </a>
+          {/* GitHub */}
+          <a
+            href="https://github.com/ronisarkar-official"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open GitHub profile in new tab"
+            className="p-2 rounded-full hover:bg-white/6 transition focus:outline-none focus:ring-2 focus:ring-white/20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-8 h-8 text-white"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden>
+              <path d="M12 .5C5.65.5.5 5.65.5 12c0 5.1 3.29 9.42 7.86 10.96.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.4-3.88-1.4-.52-1.3-1.27-1.65-1.27-1.65-1.04-.7.08-.69.08-.69 1.16.08 1.77 1.2 1.77 1.2 1.02 1.75 2.68 1.24 3.33.95.1-.74.4-1.25.72-1.53-2.55-.3-5.24-1.28-5.24-5.7 0-1.26.45-2.3 1.2-3.12-.12-.3-.52-1.52.12-3.17 0 0 .98-.32 3.2 1.2a10.95 10.95 0 0 1 5.84 0c2.2-1.53 3.18-1.2 3.18-1.2.64 1.65.24 2.87.12 3.17.76.82 1.2 1.86 1.2 3.12 0 4.43-2.7 5.4-5.27 5.7.42.36.77 1.08.77 2.17v3.21c0 .31.2.67.8.56A10.99 10.99 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z" />
+            </svg>
+          </a>
 
-        <a
-          href="https://www.linkedin.com/in/ronisarkar/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 text-white hover:text-blue-300 transition duration-200">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-8 h-8">
-            <path
-              d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 
-      0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 
-      19h-3v-10h3v10zm-1.5-11.3c-.97 
-      0-1.75-.78-1.75-1.75s.78-1.75 
-      1.75-1.75 1.75.78 
-      1.75 1.75-.78 1.75-1.75 
-      1.75zm13.5 11.3h-3v-5.6c0-3.4-4-3.1-4 
-      0v5.6h-3v-10h3v1.5c1.4-2.6 
-      7-2.8 7 2.5v6.0z"
-            />
-          </svg>
-        </a>
+          {/* LinkedIn */}
+          <a
+            href="https://www.linkedin.com/in/ronisarkar/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Open LinkedIn profile in new tab"
+            className="p-2 rounded-full hover:bg-white/6 transition focus:outline-none focus:ring-2 focus:ring-white/20">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              className="w-8 h-8 text-white"
+              aria-hidden>
+              <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-10h3v10zm-1.5-11.3c-.97 0-1.75-.78-1.75-1.75s.78-1.75 1.75-1.75 1.75.78 1.75 1.75-.78 1.75-1.75 1.75zm13.5 11.3h-3v-5.6c0-3.4-4-3.1-4 0v5.6h-3v-10h3v1.5c1.4-2.6 7-2.8 7 2.5v6.0z" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
   );

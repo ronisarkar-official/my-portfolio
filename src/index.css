@@ -215,58 +215,85 @@ body {
 }
 
 /* marquee */
+/* Marquee core */
 .marquee {
-  width: 100dvw;
   overflow: hidden;
   position: relative;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
 }
+
+/* track contains TWO copies of the logo list (we doubled in JS) */
 .marquee-box {
-  display: flex;
+  display: inline-flex;
+  gap: 1.5rem; /* fallback gap, Tailwind sets md:gap-12 etc. */
   align-items: center;
-  width: 200%;
-  height: 100%;
-  position: absolute;
-  overflow: hidden;
-  animation: marquee 60s linear infinite;
+  white-space: nowrap;
+  /* width is auto; animation will shift it by 50% (one copy) */
+  animation: marquee var(--marquee-duration, 12s) linear infinite;
+  animation-play-state: running;
+  will-change: transform;
 }
-.marquee-item {
-  float: left;
-}
+
+/* marquee animation moves left by 50% (one copy width) */
 @keyframes marquee {
-  0% {
-    left: 0;
+  from {
+    transform: translate3d(0, 0, 0);
   }
-  100% {
-    left: -100%;
+  to {
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-@keyframes wave-animation {
-  0% {
-    transform: rotate(0deg);
-  }
-  15% {
-    transform: rotate(14deg);
-  }
-  30% {
-    transform: rotate(-8deg);
-  }
-  40% {
-    transform: rotate(14deg);
-  }
-  50% {
-    transform: rotate(-4deg);
-  }
-  60% {
-    transform: rotate(10deg);
-  }
-  70% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(0deg);
+/* item */
+.marquee-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* nicer smoothing on some browsers */
+.marquee-box {
+  transform-origin: 0 0;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* pause on focus (accessibility) */
+.marquee-box:focus,
+.marquee-box[aria-hidden="true"] {
+  animation-play-state: paused;
+}
+
+/* respect reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .marquee-box {
+    animation: none;
+    transform: none;
   }
 }
+
+/* Optional: gradient edges to fade in/out logos */
+.gradient-edge {
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 6rem;
+  z-index: 20;
+}
+.gradient-edge:first-of-type {
+  left: 0;
+  background: linear-gradient(90deg, rgba(5,5,7,1) 0%, rgba(5,5,7,0) 100%);
+}
+.gradient-edge:last-of-type {
+  right: 0;
+  background: linear-gradient(270deg, rgba(5,5,7,1) 0%, rgba(5,5,7,0) 100%);
+}
+
 
 
 /* Hide scrollbar for all browsers */
