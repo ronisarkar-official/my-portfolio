@@ -17,7 +17,7 @@
     "@types/three": "^0.168.0",
     "@vercel/speed-insights": "^1.2.0",
     "framer-motion": "^12.5.0",
-    "gsap": "^3.12.7",
+    "gsap": "^3.13.0",
     "leva": "^0.9.35",
     "maath": "^0.10.8",
     "prettier": "^3.3.3",

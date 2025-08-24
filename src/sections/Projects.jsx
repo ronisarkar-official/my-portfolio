@@ -3,7 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import { Center, OrbitControls } from '@react-three/drei';
 
 import { myProjects } from '../constants/index.js';
-import CanvasLoader from '../components/Loading.jsx';
+
 import DemoComputer from '../components/DemoComputer.jsx';
 
 const projectCount = myProjects.length;
@@ -99,7 +99,7 @@ const Projects = memo(() => {
             <ambientLight intensity={7} />
             <directionalLight position={[10, 10, 5]} intensity={0.8} />
             <Center>
-              <Suspense fallback={<CanvasLoader />}>
+              <Suspense >
                 <group scale={2} position={[-0.45, -3, 0.2]} rotation={[0, -0.00, 0]}>
                   <DemoComputer texture={currentProject.texture} />
                 </group>

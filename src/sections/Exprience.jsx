@@ -3,7 +3,6 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
 import Developer from '../components/Developer.jsx';
-import CanvasLoader from '../components/Loading.jsx';
 import { workExperiences } from '../constants/index.js';
 
 const WorkContentItem = memo(({ id, name, icon, pos, duration, title, animation, handleAnimation }) => (
@@ -46,7 +45,7 @@ const Exprience = () => {
               <ambientLight intensity={4} />
               <spotLight position={[10, 10, 10]} angle={0.1} penumbra={0.5} />
               <OrbitControls enableZoom={false} maxPolarAngle={Math.PI / 2} />
-              <Suspense fallback={<CanvasLoader />}>
+              <Suspense>
                 <Developer position-y={-3} scale={3} animationName={animationName} />
               </Suspense>
             </Canvas>
