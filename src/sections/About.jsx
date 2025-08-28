@@ -1,28 +1,54 @@
-import { useState, useEffect, memo, useRef } from 'react';
+import { useState, useEffect, memo, useRef, useCallback } from 'react';
 import Globe from 'react-globe.gl';
 import Button from '../components/Button';
 
 const About = memo(() => {
   const [hasCopied, setHasCopied] = useState(false);
   const globeRef = useRef();
+  const copyTimeoutRef = useRef(null);
 
-  const handleCopy = () => {
-    navigator.clipboard.writeText('ronisarkar10938@gmail.com');
+  const handleCopy = useCallback(() => {
+    // defensive: some environments may not expose clipboard
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText('ronisarkar10938@gmail.com').catch(() => {
+        /* ignore write failures (keep UX unchanged) */
+      });
+    }
     setHasCopied(true);
-    setTimeout(() => setHasCopied(false), 2000);
-  };
+
+    // clear any existing timeout and create a new one
+    if (copyTimeoutRef.current) {
+      clearTimeout(copyTimeoutRef.current);
+    }
+    copyTimeoutRef.current = setTimeout(() => setHasCopied(false), 2000);
+  }, []);
 
   useEffect(() => {
     const globe = globeRef.current;
     if (!globe) return;
 
-    const rotate = () => {
-      globe.controls().autoRotate = true;
-      globe.controls().autoRotateSpeed = -0.7; // Adjust rotation speed
-      globe.controls().update();
-      requestAnimationFrame(rotate);
+    const controls = globe.controls?.();
+    if (!controls) return;
+
+    // Configure auto-rotate once — avoids re-setting every frame (big CPU win)
+    controls.autoRotate = true;
+    controls.autoRotateSpeed = -0.7;
+    // One-time update (behaviour preserved)
+    controls.update?.();
+
+    return () => {
+      // cleanup: stop auto-rotate on unmount
+      try {
+        controls.autoRotate = false;
+      } catch (e) {
+        /* ignore cleanup errors */
+      }
+      // clear any pending copy timeout
+      if (copyTimeoutRef.current) {
+        clearTimeout(copyTimeoutRef.current);
+        copyTimeoutRef.current = null;
+      }
     };
-    rotate();
   }, []);
 
   return (
@@ -30,7 +56,13 @@ const About = memo(() => {
       <div className="grid xl:grid-cols-3 xl:grid-rows-6 md:grid-cols-2 grid-cols-1 gap-5 h-full">
         <div className="col-span-1 row-span-3">
           <div className="grid-container">
-            <img src="/assets/grid1.png" alt="grid-1" className="w-full sm:h-[276px] h-fit object-contain" />
+            <img
+              src="/assets/grid1.png"
+              alt="grid-1"
+              className="w-full sm:h-[276px] h-fit object-contain"
+              loading="lazy"
+              decoding="async"
+            />
             <div>
               <p className="grid-headtext">Hi, I am Roni Sarkar</p>
               <p className="grid-subtext">
@@ -43,7 +75,13 @@ const About = memo(() => {
 
         <div className="col-span-1 xl:row-span-3">
           <div className="grid-container">
-            <img src="assets/grid2.webp" alt="grid-2" className="w-full sm:h-[276px] h-fit object-contain" />
+            <img
+              src="assets/grid2.webp"
+              alt="grid-2"
+              className="w-full sm:h-[276px] h-fit object-contain"
+              loading="lazy"
+              decoding="async"
+            />
             <div>
               <p className="grid-headtext">Tech Stack</p>
               <p className="grid-subtext">
@@ -87,7 +125,13 @@ const About = memo(() => {
 
         <div className="xl:col-span-2 xl:row-span-3">
           <div className="grid-container">
-            <img src="/assets/grid3.png" alt="grid-3" className="w-full sm:h-[266px] h-fit object-contain" />
+            <img
+              src="/assets/grid3.png"
+              alt="grid-3"
+              className="w-full sm:h-[266px] h-fit object-contain"
+              loading="lazy"
+              decoding="async"
+            />
             <div>
               <p className="grid-headtext">My Passion for Coding</p>
               <p className="grid-subtext">
@@ -105,11 +149,18 @@ const About = memo(() => {
               src="/assets/grid4.png"
               alt="grid-4"
               className="w-full md:h-[126px] sm:h-[276px] h-fit object-cover sm:object-top"
+              loading="lazy"
+              decoding="async"
             />
             <div className="space-y-2">
               <p className="grid-subtext text-center">Contact me</p>
               <div className="copy-container" onClick={handleCopy}>
-                <img src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'} alt="copy" />
+                <img
+                  src={hasCopied ? 'assets/tick.svg' : 'assets/copy.svg'}
+                  alt="copy"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <p className="lg:text-2xl md:text-xl font-medium text-gray_gradient text-white">
                   ronisarkar10938@gmail.com
                 </p>

@@ -1,32 +1,38 @@
-import { Suspense, useState, useCallback, memo } from 'react';
+import { Suspense, useState, useCallback, useMemo, memo } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 
 import Developer from '../components/Developer.jsx';
 import { workExperiences } from '../constants/index.js';
 
-const WorkContentItem = memo(({ id, name, icon, pos, duration, title, animation, handleAnimation }) => (
-  <div
-    key={id}
-    className="work-content_container group"
-    onClick={() => handleAnimation(animation)}
-    onPointerOver={() => handleAnimation(animation)}
-    onPointerOut={() => handleAnimation('idle')}>
-    <div className="flex flex-col h-full justify-start items-center py-2">
-      <div className="work-content_logo">
-        <img src={icon} alt="logo" className="w-full h-full" />
+const WorkContentItem = memo(({ id, name, icon, pos, duration, title, animation, handleAnimation }) => {
+  // stable event handlers to avoid creating new inline functions each render
+  const onClick = useCallback(() => handleAnimation(animation), [handleAnimation, animation]);
+  const onPointerOver = useCallback(() => handleAnimation(animation), [handleAnimation, animation]);
+  const onPointerOut = useCallback(() => handleAnimation('idle'), [handleAnimation]);
+
+  return (
+    <div
+      className="work-content_container group"
+      onClick={onClick}
+      onPointerOver={onPointerOver}
+      onPointerOut={onPointerOut}>
+      <div className="flex flex-col h-full justify-start items-center py-2">
+        <div className="work-content_logo">
+          <img src={icon} alt="logo" className="w-full h-full" />
+        </div>
+        <div className="work-content_bar" />
       </div>
-      <div className="work-content_bar" />
+      <div className="sm:p-5 px-2.5 py-5">
+        <p className="font-bold text-white-800">{name}</p>
+        <p className="text-sm mb-5">
+          {pos} -- {duration}
+        </p>
+        <p className="group-hover:text-white transition ease-in-out duration-500">{title}</p>
+      </div>
     </div>
-    <div className="sm:p-5 px-2.5 py-5">
-      <p className="font-bold text-white-800">{name}</p>
-      <p className="text-sm mb-5">
-        {pos} -- {duration}
-      </p>
-      <p className="group-hover:text-white transition ease-in-out duration-500">{title}</p>
-    </div>
-  </div>
-));
+  );
+});
 
 const Exprience = () => {
   const [animationName, setAnimationName] = useState('idle');
@@ -34,6 +40,12 @@ const Exprience = () => {
   const handleAnimation = useCallback((animation) => {
     setAnimationName(animation.toLowerCase());
   }, []);
+
+  // memoize the mapped items so they don't recreate on every parent render
+  const workItems = useMemo(
+    () => workExperiences.map((item) => <WorkContentItem key={item.id} {...item} handleAnimation={handleAnimation} />),
+    [handleAnimation],
+  );
 
   return (
     <section className="c-space my-20">
@@ -51,11 +63,7 @@ const Exprience = () => {
             </Canvas>
           </div>
           <div className="work-content">
-            <div className="sm:py-10 py-5 sm:px-5 px-2.5">
-              {workExperiences.map((item) => (
-                <WorkContentItem key={item.id} {...item} handleAnimation={handleAnimation} />
-              ))}
-            </div>
+            <div className="sm:py-10 py-5 sm:px-5 px-2.5">{workItems}</div>
           </div>
         </div>
       </div>
