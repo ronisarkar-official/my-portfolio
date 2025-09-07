@@ -11,6 +11,7 @@ import Navbar from './sections/Navbar.jsx';
 import Projects from './sections/Projects.jsx';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import Loader from './components/Loaders.jsx'; // your GSAP loader component
+import CommonNinjaWidget from './sections/CommonNinjaWidget.jsx';
 
 function waitForAssets() {
   return new Promise((resolve) => {
@@ -101,7 +102,7 @@ function App() {
       <Contact />
       <Footer />
       <SpeedInsights />
-      <div class="commonninja_component pid-fe6c3fa4-737e-4bd8-81cc-6032ebdebd7d"></div>
+      <CommonNinjaWidget />
     </main>
   );
 }
