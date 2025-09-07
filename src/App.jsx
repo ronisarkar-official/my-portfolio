@@ -101,6 +101,7 @@ function App() {
       <Contact />
       <Footer />
       <SpeedInsights />
+      <div class="commonninja_component pid-fe6c3fa4-737e-4bd8-81cc-6032ebdebd7d"></div>
     </main>
   );
 }
