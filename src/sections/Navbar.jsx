@@ -101,14 +101,7 @@ const NavbarGlass = () => {
           className={`mt-3 sm:hidden overflow-hidden transition-[max-height,opacity] duration-300 ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
           <div className="rounded-2xl p-4 backdrop-blur-sm bg-black/60 border border-white/6 shadow-[0_10px_30px_rgba(0,0,0,0.6)]">
             <NavItems onClick={close} />
-            <div className="mt-4">
-              <a
-                href="/contact"
-                onClick={close}
-                className="w-full block text-white text-center rounded-lg px-4 py-2 font-semibold bg-black/40 border border-white/6 hover:bg-black/30 transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/30">
-                Contact
-              </a>
-            </div>
+            
           </div>
         </div>
       </div>
