@@ -83,7 +83,7 @@ export const myProjects = [
     desc: 'Pixivo is a modern web-based application designed for effortless image discovery and sharing, much like a personalized visual inspiration hub. With its clean and engaging interface, users can explore, post, like, and comment on visual content, making it an interactive community-driven platform.',
     subdesc:
       'Developed using EJS, Express.js, MongoDB, and Node.js, Pixivo is built to deliver a smooth user experience with dynamic rendering and real-time interactions. It is optimized for scalability and performance, ensuring that users can seamlessly browse and engage with content anytime.',
-    href: 'https://ronis-blog.vercel.app',
+    href: 'https://pixivo.vercel.app',
     githubUrl: 'https://github.com/ronisarkar-official/pixivo',
     texture: '/textures/project/project3.mp4',
     logo: '/assets/project-logo3.png',
